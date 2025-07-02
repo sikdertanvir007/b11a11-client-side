@@ -39,24 +39,24 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-52 p-2 shadow"
             >
-              <NavLink className={({isActive})=>(isActive ? 'underline text-orange-500 font-bold' : '')} to="/">Home</NavLink>
-              <NavLink className={({isActive})=>(isActive ? 'underline text-orange-500 font-bold' : '')} to="/all-recipes">Categories</NavLink>
+              <NavLink className={({isActive})=>(isActive ? 'underline text-red-500 font-bold' : '')} to="/">Home</NavLink>
+              <NavLink className={({isActive})=>(isActive ? 'underline text-red-500 font-bold' : '')} to="/all-recipes">Categories</NavLink>
                {user && (
-  <NavLink className={({isActive})=>(isActive ? 'underline text-orange-500 font-bold' : '')} to="/add-recipe">
+  <NavLink className={({isActive})=>(isActive ? 'underline text-red-500 font-bold' : '')} to="/add-recipe">
     All Products 
   </NavLink>
 )}
               {user && (
-  <NavLink className={({isActive})=>(isActive ? 'underline text-orange-500 font-bold' : '')} to="/add-recipe">
+  <NavLink className={({isActive})=>(isActive ? 'underline text-red-500 font-bold' : '')} to="/add-recipe">
     Add Product 
   </NavLink>
 )}
               {user && (
-  <NavLink className={({isActive})=>(isActive ? 'underline text-orange-500 font-bold' : '')} to={`/my-recipes?email=${user.email}`}>
+  <NavLink className={({isActive})=>(isActive ? 'underline text-red-500 font-bold' : '')} to={`/my-recipes?email=${user.email}`}>
     My Products
 </NavLink>)}
  {user && (
-  <NavLink className={({isActive})=>(isActive ? 'underline text-orange-500 font-bold' : '')} to={`/my-recipes?email=${user.email}`}>
+  <NavLink className={({isActive})=>(isActive ? 'underline text-red-500 font-bold' : '')} to={`/my-recipes?email=${user.email}`}>
     Cart
 </NavLink>)}
 
@@ -64,15 +64,19 @@ const Navbar = () => {
              
             </ul>
           </div>
-          <Link to="/">
-           <p className='font-bold text-3xl text-orange-500 italic'>foo<span className='text-yellow-400'>dish</span></p>
+          
+          <Link className='flex items-center' to="/">
+          
+          <img className='w-15 ' src="/public/megamerx-logo.png.png" alt="" />
+           <p className='font-bold text-3xl text-red-500 italic'>Mega<span className='text-red-600'>Merx</span></p>
           </Link>
+          
         </div>
 
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 space-x-8">
-            <NavLink  className={({isActive})=>(isActive ? 'btn btn-outline  btn-sm underline text-orange-500 font-bold' : 'btn btn-outline btn-sm ')} to="/">Home</NavLink>
-             <NavLink className={({isActive})=>(isActive ? 'btn btn-outline  btn-sm underline text-orange-500 font-bold' : 'btn btn-outline btn-sm ')} to="/all-recipes">Categories</NavLink>
+            <NavLink  className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold' : 'btn btn-outline btn-sm ')} to="/">Home</NavLink>
+             <NavLink className={({isActive})=>(isActive ? 'btn btn-outline  btn-sm underline text-red-500 font-bold' : 'btn btn-outline btn-sm ')} to="/all-recipes">Categories</NavLink>
             {user && (
   <NavLink className={({isActive})=>(isActive ? ' btn btn-outline  btn-sm underline text-orange-500 font-bold' : 'btn btn-outline btn-sm')} to="/add-recipe">
       All Products 
