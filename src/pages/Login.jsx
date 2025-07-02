@@ -7,6 +7,7 @@ import Swal from 'sweetalert2';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../provider/AuthProvider';
 
+
 const Login = () => {
     const [error, setError] = useState("");
     const { signIn , handleGoogleSignIn } = use(AuthContext) ;
