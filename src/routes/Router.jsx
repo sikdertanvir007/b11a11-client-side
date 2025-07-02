@@ -1,0 +1,71 @@
+import { createBrowserRouter } from "react-router";
+import HomeLayout from "../Layouts/HomeLayout";
+
+
+
+import Home from "../pages/Home";
+
+
+import AuthLayout from "../Layouts/AuthLayout";
+import Loading from "../pages/Loading";
+
+import Login from "../pages/Login";
+import Register from "../pages/Register";
+import ErrorPage from "../pages/ErrorPage";
+import ForgotPassword from "../pages/ForgotPassword";
+
+
+
+
+
+
+const router = createBrowserRouter([
+{
+path : "/",
+element : <HomeLayout></HomeLayout>,
+
+children : [
+    {
+        path : "/",
+       element :<Home></Home>,
+       
+        hydrateFallbackElement : <Loading></Loading>,
+    },
+]
+},
+{
+path : "/auth",
+element : <AuthLayout></AuthLayout>,
+children : [
+    {
+        path : "/auth/login",
+        element : <Login></Login>,
+    },
+    {
+        path : "/auth/register",
+        element : <Register></Register>,
+    },
+    {
+        path : "/auth/forgot-password",
+        element : <ForgotPassword></ForgotPassword>,
+    },
+]
+},
+
+
+
+
+
+
+
+
+
+
+{
+path : "/*",
+element : <ErrorPage></ErrorPage> ,
+},
+
+]);
+
+export default router;
