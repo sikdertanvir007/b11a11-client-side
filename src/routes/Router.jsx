@@ -1,11 +1,5 @@
 import { createBrowserRouter } from "react-router";
 import HomeLayout from "../Layouts/HomeLayout";
-
-
-
-import Home from "../pages/Home";
-
-
 import AuthLayout from "../Layouts/AuthLayout";
 import Loading from "../pages/Loading";
 
@@ -13,6 +7,13 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import ErrorPage from "../pages/ErrorPage";
 import ForgotPassword from "../pages/ForgotPassword";
+import Home from "../pages/Home";
+
+
+
+
+
+
 
 
 

@@ -120,18 +120,39 @@ const Navbar = () => {
           </ul>
         </div>
 
-        <div className="navbar-end space-x-4 items-center flex">
-          
+       <div className="navbar-end space-x-4 items-center flex">
   {user ? (
-    <img src={user.photoURL} alt="User" className="w-10 h-10 rounded-full" />
+    <>
+      <img
+        src={user.photoURL}
+        alt="User"
+        className="w-10 h-10 rounded-full"
+        title={user.displayName}
+      />
+      <Link
+        to="/"
+        onClick={handleLogOut}
+        className="btn border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white rounded transition duration-300"
+      >
+        LogOut
+      </Link>
+    </>
   ) : (
-    <FaUserXmark size={32} />
-  )}
-
-  {user ? (
-    <Link to="/" onClick={handleLogOut} className="btn border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white rounded transition duration-300">LogOut</Link>
-  ) : (
-    <Link to="/auth/login" className="btn border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white rounded transition duration-300">Login</Link>
+    <>
+      <FaUserXmark size={32} />
+      <Link
+        to="/auth/login"
+        className="btn border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white rounded transition duration-300"
+      >
+        Login
+      </Link>
+      <Link
+        to="/auth/register"
+        className="btn border border-green-500 text-green-500 hover:bg-green-500 hover:text-white rounded transition duration-300"
+      >
+        Register
+      </Link>
+    </>
   )}
 </div>
 
