@@ -49,7 +49,7 @@ const CategoryProducts = () => {
   halfSymbol={<FaStarHalfAlt color="#ffd700" size={24} />}
   emptySymbol={<FaRegStar color="#ddd" size={24} />}
 />
-              <button className="mt-3 px-3 py-2 bg-orange-500 text-white rounded">
+              <button className="mt-3 px-3 py-2 bg-red-600 text-white rounded-xl">
                 Details
               </button>
               </div>
