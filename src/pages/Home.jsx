@@ -8,7 +8,9 @@ const Home = () => {
             <div className='px-4 md:px-6  max-w-full md:max-w-4xl lg:max-w-6xl mx-auto pt-20 '>
             <BannerSlider></BannerSlider>
             </div>
+            <div className='px-4 md:px-6  max-w-full md:max-w-4xl lg:max-w-6xl mx-auto pt-20'>
             <Categories></Categories>
+            </div>
         </div>
     );
 };
