@@ -8,6 +8,7 @@ import Register from "../pages/Register";
 import ErrorPage from "../pages/ErrorPage";
 import ForgotPassword from "../pages/ForgotPassword";
 import Home from "../pages/Home";
+import CategoryProducts from "../components/CategoryProducts";
 
 
 
@@ -53,7 +54,10 @@ children : [
 ]
 },
 
-
+{
+    path : "/category/:categoryName",
+    element : <CategoryProducts></CategoryProducts>,
+},
 
 
 
