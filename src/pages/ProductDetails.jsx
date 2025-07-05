@@ -6,6 +6,7 @@ import { AuthContext } from "../provider/AuthProvider";
 import { FaStar, FaRegStar, FaStarHalfAlt } from "react-icons/fa";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import Loading from "./Loading";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -21,7 +22,7 @@ const ProductDetails = () => {
   }, [id]);
 
   if (!product) {
-    return <p className="text-center py-10">Loading...</p>;
+    return <Loading></Loading>;
   }
 
   // Parse numeric fields safely

@@ -68,15 +68,15 @@ const Navbar = () => {
           <Link className='flex items-center' to="/">
           
           <img className='w-15 ' src="/public/megamerx-logo.png.png" alt="" />
-           <p className='font-bold text-3xl text-red-500 italic'>Mega<span className='text-red-600'>Merx</span></p>
+           <p className='font-bold text-3xl text-red-500 italic'>Mega<span className='text-orange-500 italic'>Merx</span></p>
           </Link>
           
         </div>
 
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 space-x-8">
-            <NavLink  className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold' : 'btn btn-outline btn-sm ')} to="/">Home</NavLink>
-             <NavLink className={({isActive})=>(isActive ? 'btn btn-outline  btn-sm underline text-red-500 font-bold' : 'btn btn-outline btn-sm ')} to="/all-recipes">Categories</NavLink>
+            <NavLink  className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm ' : 'btn btn-outline btn-sm ')} to="/">Home</NavLink>
+            <NavLink  className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm' : 'btn btn-outline btn-sm ')} to="/all-categories">Categories</NavLink>
             {user && (
   <NavLink className={({isActive})=>(isActive ? ' btn btn-outline  btn-sm underline text-orange-500 font-bold' : 'btn btn-outline btn-sm')} to="/add-recipe">
       All Products 
@@ -89,12 +89,7 @@ const Navbar = () => {
   </NavLink>
 )}
 
-{user && (
-  <NavLink className={({isActive})=>(isActive ? ' btn btn-outline  btn-sm underline text-orange-500 font-bold' : 'btn btn-outline btn-sm')} to="/add-recipe">
-    My Products 
-  </NavLink>
-)}
-              {user && (
+          {user && (
   <NavLink
     to={`/my-recipes?email=${user.email}`}
     className={({ isActive }) =>

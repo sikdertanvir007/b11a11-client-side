@@ -11,6 +11,7 @@ import Home from "../pages/Home";
 import CategoryProducts from "../components/CategoryProducts";
 import PrivateRoute from "../provider/PrivateRoute";
 import ProductDetails from "../pages/ProductDetails";
+import CategoriesPage from "../pages/CategoriesPage";
 
 
 
@@ -28,12 +29,16 @@ const router = createBrowserRouter([
 {
 path : "/",
 element : <HomeLayout></HomeLayout>,
-
+hydrateFallbackElement: <Loading></Loading>,
 children : [
     {
         path : "/",
        element :<Home></Home>,
-       
+        loader: async () => {
+          const res = await fetch("http://localhost:3000/products");
+          const products = await res.json();
+          return products;
+        },
         hydrateFallbackElement : <Loading></Loading>,
     },
 ]
@@ -60,6 +65,7 @@ children : [
 {
     path : "/category/:categoryName",
     element : <CategoryProducts></CategoryProducts>,
+    hydrateFallbackElement : <Loading></Loading>,
 },
 
 {
@@ -68,10 +74,15 @@ children : [
     <PrivateRoute>
         <ProductDetails></ProductDetails>
     </PrivateRoute>
- )
+ ),
+ hydrateFallbackElement : <Loading></Loading>
 },
 
-
+{
+    path : "/all-categories",
+    element : <CategoriesPage></CategoriesPage>,
+    hydrateFallbackElement : <Loading></Loading>,
+},
 
 
 

@@ -18,6 +18,10 @@ const CategoryProducts = () => {
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, [categoryName]);
+   if (!products) {
+      return <Loading></Loading>;
+    }
+  
 
   return (
     <div>
