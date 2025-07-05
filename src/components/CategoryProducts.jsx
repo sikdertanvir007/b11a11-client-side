@@ -5,7 +5,7 @@ import { FaRegStar } from "react-icons/fa";
 import { FaStarHalfAlt } from "react-icons/fa";
 
 
-import { useParams } from "react-router";
+import { Link, useParams } from "react-router";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
@@ -49,9 +49,9 @@ const CategoryProducts = () => {
   halfSymbol={<FaStarHalfAlt color="#ffd700" size={24} />}
   emptySymbol={<FaRegStar color="#ddd" size={24} />}
 />
-              <button className="mt-3 px-3 py-2 bg-red-600 text-white rounded-xl">
+              <Link to={`/product/${product._id?.$oid || product._id}`} className="mt-3 px-3 py-2 bg-red-600 text-white rounded-xl">
                 Details
-              </button>
+              </Link>
               </div>
             </div>
           );

@@ -9,6 +9,9 @@ import ErrorPage from "../pages/ErrorPage";
 import ForgotPassword from "../pages/ForgotPassword";
 import Home from "../pages/Home";
 import CategoryProducts from "../components/CategoryProducts";
+import PrivateRoute from "../provider/PrivateRoute";
+import ProductDetails from "../pages/ProductDetails";
+
 
 
 
@@ -59,7 +62,14 @@ children : [
     element : <CategoryProducts></CategoryProducts>,
 },
 
-
+{
+ path :"/product/:id",
+ element : (
+    <PrivateRoute>
+        <ProductDetails></ProductDetails>
+    </PrivateRoute>
+ )
+},
 
 
 
