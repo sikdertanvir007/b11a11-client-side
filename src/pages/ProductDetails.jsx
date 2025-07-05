@@ -60,7 +60,7 @@ const ProductDetails = () => {
     }
 
     // PATCH request to update quantity
-    fetch(`http://localhost:3000/products/${objectId}`, {
+    fetch(`http://localhost:3000/products/${objectId}quantity`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ $inc: { mainQuantity: -quantity } }),

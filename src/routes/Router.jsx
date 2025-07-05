@@ -12,6 +12,8 @@ import CategoryProducts from "../components/CategoryProducts";
 import PrivateRoute from "../provider/PrivateRoute";
 import ProductDetails from "../pages/ProductDetails";
 import CategoriesPage from "../pages/CategoriesPage";
+import AllProducts from "../pages/AllProducts";
+import UpdateProduct from "../pages/UpdateProduct";
 
 
 
@@ -83,8 +85,25 @@ children : [
     element : <CategoriesPage></CategoriesPage>,
     hydrateFallbackElement : <Loading></Loading>,
 },
+{
+     path: "/all-products",
+  element: (
+    <PrivateRoute>
+        <AllProducts></AllProducts>
+    </PrivateRoute>
+  ),
+    hydrateFallbackElement: <Loading></Loading>,
+},
 
-
+{
+    path: "/update-product/:id",
+  element: (
+   <PrivateRoute>
+    <UpdateProduct></UpdateProduct>
+   </PrivateRoute>
+  ),
+    hydrateFallbackElement: <Loading></Loading>,
+},
 
 
 {
