@@ -91,7 +91,7 @@ const Login = () => {
       .then(() => {
         Swal.fire({
                      title: 'LogIn Successful!',
-                     text: 'Welcome to foodish!',
+                     text: 'Welcome to MegaMerx!',
                      icon: 'success',
                      confirmButtonColor: '#6366F1',
                    });

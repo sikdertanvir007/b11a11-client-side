@@ -14,6 +14,8 @@ import ProductDetails from "../pages/ProductDetails";
 import CategoriesPage from "../pages/CategoriesPage";
 import AllProducts from "../pages/AllProducts";
 import UpdateProduct from "../pages/UpdateProduct";
+import AddProduct from "../pages/AddProduct";
+import MyProducts from "../pages/MyProducts";
 
 
 
@@ -104,7 +106,24 @@ children : [
   ),
     hydrateFallbackElement: <Loading></Loading>,
 },
-
+{
+  path: "/add-product",
+  element: (
+   <PrivateRoute>
+    <AddProduct></AddProduct>
+   </PrivateRoute>
+  ),
+  hydrateFallbackElement : <Loading></Loading>,
+},
+{
+  path: "/my-products",
+  element: (
+   <PrivateRoute>
+    <MyProducts></MyProducts>
+   </PrivateRoute>
+  ),
+    hydrateFallbackElement : <Loading></Loading>,
+},
 
 {
 path : "/*",

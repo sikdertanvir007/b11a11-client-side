@@ -84,19 +84,15 @@ const Navbar = () => {
 )}
 
 {user && (
-  <NavLink className={({isActive})=>(isActive ? ' btn btn-outline  btn-sm underline text-orange-500 font-bold' : 'btn btn-outline btn-sm')} to="/add-recipe">
+<NavLink  className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm' : 'btn btn-outline rounded-xl btn-sm ')} to="/add-product">
     Add Product
   </NavLink>
 )}
 
           {user && (
   <NavLink
-    to={`/my-recipes?email=${user.email}`}
-    className={({ isActive }) =>
-      isActive
-        ? 'btn btn-outline btn-sm underline text-orange-500 font-bold'
-        : 'btn btn-outline btn-sm'
-    }
+    to={`/my-products?email=${user.email}`}
+   className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm' : 'btn btn-outline rounded-xl btn-sm ')}
   >
     My Products
   </NavLink>

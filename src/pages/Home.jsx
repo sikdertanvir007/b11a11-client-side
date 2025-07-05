@@ -10,7 +10,7 @@ const Home = () => {
 
   return (
     <div>
-      <div className='px-4 md:px-6 max-w-full md:max-w-4xl lg:max-w-6xl mx-auto pt-20'>
+      <div className='px-4 md:px-6 max-w-full md:max-w-4xl lg:max-w-6xl mx-auto pt-30'>
         <BannerSlider />
       </div>
       <div className='px-4 md:px-6 max-w-full md:max-w-4xl lg:max-w-6xl mx-auto pt-20'>

@@ -118,7 +118,7 @@ const Register = () => {
           if (saved) {
             Swal.fire({
               title: 'Registration Successful!',
-              text: 'Welcome to foodish!',
+              text: 'Welcome to MegaMerx!',
               icon: 'success',
               confirmButtonColor: '#6366F1',
             });
