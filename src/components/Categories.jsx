@@ -24,6 +24,9 @@ const Categories = () => {
   }, []);
 
   return (
+
+    <div>
+    <h1 className="text-3xl font-bold text-center my-8 underline">Categories</h1>
     <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
       {categories.map((cat, index) => {
         const bgColor = bgColors[index % bgColors.length];
@@ -39,6 +42,7 @@ const Categories = () => {
           </Link>
         );
       })}
+    </div>
     </div>
   );
 };
