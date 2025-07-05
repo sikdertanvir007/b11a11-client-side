@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 
 import Swal from "sweetalert2";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const UpdateProduct = () => {
   const { id } = useParams();
@@ -56,8 +58,10 @@ const UpdateProduct = () => {
   };
 
   return (
-    <div className="max-w-xl mx-auto px-4 py-10">
-      <h1 className="text-2xl font-bold mb-6">Update Product</h1>
+    <div>
+        <div><Navbar></Navbar></div>
+    <div className="max-w-xl mx-auto px-4 py-30">
+      <h1 className="text-2xl font-bold mb-6 text-red-600">Update Product</h1>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <input
@@ -136,11 +140,13 @@ const UpdateProduct = () => {
 
         <button
           type="submit"
-          className="bg-orange-500 text-white px-4 py-2 rounded"
+          className="bg-red-600 text-white px-4 py-2 rounded-xl"
         >
           Update Product
         </button>
       </form>
+    </div>
+    <Footer></Footer>
     </div>
   );
 };

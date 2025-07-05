@@ -42,7 +42,7 @@ const Navbar = () => {
               <NavLink className={({isActive})=>(isActive ? 'underline text-red-500 font-bold' : '')} to="/">Home</NavLink>
               <NavLink className={({isActive})=>(isActive ? 'underline text-red-500 font-bold' : '')} to="/all-categories">Categories</NavLink>
                {user && (
-  <NavLink className={({isActive})=>(isActive ? 'underline text-red-500 font-bold' : '')} to="/add-recipe">
+  <NavLink className={({isActive})=>(isActive ? 'underline text-red-500 font-bold' : '')} to="/all-products">
     All Products 
   </NavLink>
 )}
@@ -75,10 +75,10 @@ const Navbar = () => {
 
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 space-x-8">
-            <NavLink  className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm ' : 'btn btn-outline btn-sm ')} to="/">Home</NavLink>
-            <NavLink  className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm' : 'btn btn-outline btn-sm ')} to="/all-categories">Categories</NavLink>
+            <NavLink  className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm ' : 'btn btn-outline rounded-xl btn-sm ')} to="/">Home</NavLink>
+            <NavLink  className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm' : 'btn btn-outline rounded-xl btn-sm ')} to="/all-categories">Categories</NavLink>
             {user && (
-  <NavLink className={({isActive})=>(isActive ? ' btn btn-outline  btn-sm underline text-orange-500 font-bold' : 'btn btn-outline btn-sm')} to="/all-products">
+  <NavLink  className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm' : 'btn btn-outline rounded-xl btn-sm ')} to="/all-products">
       All Products 
   </NavLink>
 )}

@@ -14,11 +14,13 @@ const HotDeals = ({ products }) => {
               key={product._id?.$oid || product._id}
               className="bg-white border rounded shadow hover:shadow-lg p-4 space-y-2"
             >
+                <div className="flex justify-center items-center mb-4">
               <img
                 src={product.image}
                 alt={product.name}
-                className="h-48 w-full object-cover rounded"
+                className="h-48 w-50 object-cover rounded"
               />
+              </div>
               <h3 className="text-xl font-bold">{product.name}</h3>
               <p className="text-gray-500">{product.description?.slice(0, 60)}...</p>
               <p className="text-orange-600 font-bold text-lg">${price.toFixed(2)}</p>
