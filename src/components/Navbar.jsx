@@ -56,7 +56,7 @@ const Navbar = () => {
     My Products
 </NavLink>)}
  {user && (
-  <NavLink className={({isActive})=>(isActive ? 'underline text-red-500 font-bold' : '')} to={`/my-recipes?email=${user.email}`}>
+  <NavLink className={({isActive})=>(isActive ? 'underline text-red-500 font-bold' : '')}  to={`/cart/${user.email}`}>
     Cart
 </NavLink>)}
 
@@ -96,13 +96,22 @@ const Navbar = () => {
   >
     My Products
   </NavLink>
+
+
 )}
-
 {user && (
-  <NavLink className={({isActive})=>(isActive ? 'underline text-orange-500 font-bold' : '')} to={`/my-recipes?email=${user.email}`}>
-    Cart
-</NavLink>)}
+<NavLink
+  to={`/cart/${user.email}`}
+  className={({ isActive }) =>
+    isActive
+      ? 'btn bg-red-500 rounded-xl text-white font-bold btn-sm'
+      : 'btn btn-outline rounded-xl btn-sm'
+  }
+>
+  Cart
+</NavLink>
 
+)}
 
 
 

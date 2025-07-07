@@ -16,6 +16,7 @@ import AllProducts from "../pages/AllProducts";
 import UpdateProduct from "../pages/UpdateProduct";
 import AddProduct from "../pages/AddProduct";
 import MyProducts from "../pages/MyProducts";
+import Cart from "../pages/Cart";
 
 
 
@@ -124,6 +125,40 @@ children : [
   ),
     hydrateFallbackElement : <Loading></Loading>,
 },
+
+{
+  path: "/cart",
+  loader: async () => {
+          const res = await fetch("http://localhost:3000/cart");
+          const cartItems = await res.json();
+          return cartItems;
+  },
+
+  element: (
+    <PrivateRoute>
+        <Cart></Cart>
+    </PrivateRoute>
+  ),
+},
+{
+    path: "/cart/:email",
+    element: (
+      <PrivateRoute>
+        <Cart />
+      </PrivateRoute>
+    ),
+    loader: async ({ params }) => {
+      const email = params.email;
+      const res = await fetch(`http://localhost:3000/cart/${email}`);
+      if (!res.ok) {
+        throw new Response("Failed to fetch cart", { status: res.status });
+      }
+      const data = await res.json();
+      return data;
+    }
+  },
+
+
 
 {
 path : "/*",
