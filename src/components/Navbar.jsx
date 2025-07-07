@@ -5,6 +5,7 @@ import { FaUserXmark } from "react-icons/fa6";
 import { toast } from 'react-toastify';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../provider/AuthProvider';
+import { FaShoppingCart } from "react-icons/fa";
 
 
 
@@ -47,17 +48,17 @@ const Navbar = () => {
   </NavLink>
 )}
               {user && (
-  <NavLink className={({isActive})=>(isActive ? 'underline text-red-500 font-bold' : '')} to="/add-recipe">
+  <NavLink className={({isActive})=>(isActive ? 'underline text-red-500 font-bold' : '')}  to="/add-product">
     Add Product 
   </NavLink>
 )}
               {user && (
-  <NavLink className={({isActive})=>(isActive ? 'underline text-red-500 font-bold' : '')} to={`/my-recipes?email=${user.email}`}>
+  <NavLink className={({isActive})=>(isActive ? 'underline text-red-500 font-bold' : '')} to={`/my-products?email=${user.email}`}>
     My Products
 </NavLink>)}
  {user && (
   <NavLink className={({isActive})=>(isActive ? 'underline text-red-500 font-bold' : '')}  to={`/cart/${user.email}`}>
-    Cart
+     <FaShoppingCart size={20} />
 </NavLink>)}
 
             
@@ -104,11 +105,11 @@ const Navbar = () => {
   to={`/cart/${user.email}`}
   className={({ isActive }) =>
     isActive
-      ? 'btn bg-red-500 rounded-xl text-white font-bold btn-sm'
+      ? 'btn bg-red-500 rounded-xl text-white font-bold btn-sm '
       : 'btn btn-outline rounded-xl btn-sm'
   }
 >
-  Cart
+  <FaShoppingCart size={20} />
 </NavLink>
 
 )}
