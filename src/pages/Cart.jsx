@@ -3,6 +3,7 @@ import { Link, useLoaderData, useParams } from "react-router";
 import Swal from "sweetalert2";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { Helmet } from "react-helmet-async";
 
 const Cart = () => {
   const cartItems = useLoaderData();
@@ -35,6 +36,7 @@ const Cart = () => {
   if (!cartItems || cartItems.length === 0) {
     return (
       <div>
+        <Helmet> <title>My Cart | MegaMerx</title></Helmet>
         <div><Navbar></Navbar></div>
       <div className="max-w-xl  text-center mx-auto my-50 ">
         <p className="text-lg mb-4 text-gray-600">Your cart is empty!</p>

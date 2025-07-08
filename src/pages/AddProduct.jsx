@@ -3,6 +3,7 @@ import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { Helmet } from "react-helmet-async";
 
 const AddProduct = () => {
   const { user } = useContext(AuthContext);
@@ -76,6 +77,7 @@ const AddProduct = () => {
 
   return (
     <div>
+      <Helmet> <title>Add Products | MegaMerx</title></Helmet>
         <div><Navbar></Navbar></div>
     <div className="max-w-3xl mx-auto p-8 py-30">
       <h2 className="text-3xl font-bold mb-6 text-red-600">Add New Product</h2>

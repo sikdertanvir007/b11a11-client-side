@@ -4,6 +4,7 @@ import { Link } from "react-router";
 import Loading from "./Loading";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { Helmet } from "react-helmet-async";
 
 const MyProducts = () => {
   const { user } = useContext(AuthContext);
@@ -23,6 +24,7 @@ const MyProducts = () => {
 
   return (
     <div>
+      <Helmet><title> My Products | MegaMerx</title></Helmet>
         <div><Navbar></Navbar></div>
     <div className="max-w-6xl mx-auto p-6 py-30">
       <h2 className="text-3xl font-bold mb-8 text-red-600">My Products</h2>

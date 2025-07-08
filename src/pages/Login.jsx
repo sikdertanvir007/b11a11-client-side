@@ -6,6 +6,7 @@ import { FiEye, FiEyeOff } from 'react-icons/fi';
 import Swal from 'sweetalert2';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../provider/AuthProvider';
+import { Helmet } from 'react-helmet-async';
 
 
 const Login = () => {
@@ -41,6 +42,8 @@ const Login = () => {
     };
 
     return (
+      <div>
+        <Helmet><title> Login | MegaMerx</title></Helmet>
         <div className='flex justify-center min-h-screen items-center'>
           
             <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl py-5">
@@ -106,6 +109,7 @@ const Login = () => {
                     </div>
                 </form>
             </div>
+        </div>
         </div>
     );
 };

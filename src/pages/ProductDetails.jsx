@@ -7,6 +7,7 @@ import { FaStar, FaRegStar, FaStarHalfAlt } from "react-icons/fa";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Loading from "./Loading";
+import { Helmet } from "react-helmet-async";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -95,6 +96,7 @@ const ProductDetails = () => {
 
   return (
     <div>
+      <Helmet><title> Details | MegaMerx</title></Helmet>
       <Navbar />
       <div className="p-6 max-w-5xl mx-auto pt-30">
         <div className="flex flex-col md:flex-row gap-6 items-center">
