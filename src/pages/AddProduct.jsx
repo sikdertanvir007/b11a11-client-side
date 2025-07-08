@@ -80,7 +80,7 @@ const AddProduct = () => {
       <Helmet> <title>Add Products | MegaMerx</title></Helmet>
         <div><Navbar></Navbar></div>
     <div className="max-w-3xl mx-auto p-8 py-30">
-      <h2 className="text-3xl font-bold mb-6 text-red-600">Add New Product</h2>
+      <h2 className="text-3xl font-bold mb-6 text-red-600 italic">Add New Product</h2>
       <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-4">
         <input
           type="text"

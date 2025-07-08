@@ -3,7 +3,7 @@ const FeaturedBrands = ({ products }) => {
 
   return (
     <section className="mb-12">
-      <h2 className="text-3xl font-bold mb-6 text-center text-orange-600">Featured Brands</h2>
+      <h2 className="text-3xl font-bold mb-6 text-center text-orange-600 italic">Featured Brands</h2>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
         {uniqueBrands.map((brand, idx) => (
           <div

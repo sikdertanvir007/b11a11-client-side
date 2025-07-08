@@ -27,7 +27,7 @@ const MyProducts = () => {
       <Helmet><title> My Products | MegaMerx</title></Helmet>
         <div><Navbar></Navbar></div>
     <div className="max-w-6xl mx-auto p-6 py-30">
-      <h2 className="text-3xl font-bold mb-8 text-red-600">My Products</h2>
+      <h2 className="text-3xl font-bold mb-8 text-red-600 italic">My Products</h2>
 
       {products?.length === 0 ? (
         <div className="text-center text-gray-600">

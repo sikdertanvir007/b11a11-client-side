@@ -42,7 +42,7 @@ const Cart = () => {
         <p className="text-lg mb-4 text-gray-600">Your cart is empty!</p>
         <Link
           to="/"
-          className="bg-red-500 text-white px-6 py-2 rounded hover:bg-red-700"
+          className="bg-red-600 text-white px-6 py-2 rounded-xl hover:bg-red-700"
         >
           Go Back to Home
         </Link>
