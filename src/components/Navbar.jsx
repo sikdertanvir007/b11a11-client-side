@@ -76,16 +76,17 @@ const Navbar = () => {
 
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 space-x-8">
-            <NavLink  className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm ' : 'btn btn-outline rounded-xl btn-sm ')} to="/">Home</NavLink>
-            <NavLink  className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm' : 'btn btn-outline rounded-xl btn-sm ')} to="/all-categories">Categories</NavLink>
+            <NavLink  className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm ' : 'btn border border-red-500 text-red-500 font-bold rounded-xl btn-sm ')} to="/">Home</NavLink>
+            <NavLink  className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm' : 'btn border border-red-500 text-red-500 font-bold rounded-xl btn-sm ')} to="/all-categories">Categories</NavLink>
+            <NavLink  className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm' : 'btn border border-red-500 text-red-500 font-bold rounded-xl btn-sm ')} to="/about-us">About Us</NavLink>
             {user && (
-  <NavLink  className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm' : 'btn btn-outline rounded-xl btn-sm ')} to="/all-products">
+  <NavLink  className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm' : 'btn border border-red-500 text-red-500 font-bold rounded-xl btn-sm ')} to="/all-products">
       All Products 
   </NavLink>
 )}
 
 {user && (
-<NavLink  className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm' : 'btn btn-outline rounded-xl btn-sm ')} to="/add-product">
+<NavLink  className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm' : 'btn border border-red-500 text-red-500 font-bold rounded-xl btn-sm ')} to="/add-product">
     Add Product
   </NavLink>
 )}
@@ -93,7 +94,7 @@ const Navbar = () => {
           {user && (
   <NavLink
     to={`/my-products?email=${user.email}`}
-   className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm' : 'btn btn-outline rounded-xl btn-sm ')}
+   className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm' : 'btn border border-red-500 text-red-500 font-bold rounded-xl btn-sm  ')}
   >
     My Products
   </NavLink>
@@ -106,7 +107,7 @@ const Navbar = () => {
   className={({ isActive }) =>
     isActive
       ? 'btn bg-red-500 rounded-xl text-white font-bold btn-sm '
-      : 'btn btn-outline rounded-xl btn-sm'
+      : 'btn border border-red-500 text-red-500 font-bold rounded-xl btn-sm '
   }
 >
   <FaShoppingCart size={20} />

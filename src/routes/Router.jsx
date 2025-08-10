@@ -19,6 +19,7 @@ import MyProducts from "../pages/MyProducts";
 import Cart from "../pages/Cart";
 
 import { waitForAuth } from "../utils/firebaseAuthHelpers";
+import About from "../pages/About";
 
 
 
@@ -160,6 +161,11 @@ children : [
   ),
 },
 
+{
+  path: "/about-us",
+  Component: About,
+  hydrateFallbackElement: <Loading></Loading>,
+},
 
 
 {
