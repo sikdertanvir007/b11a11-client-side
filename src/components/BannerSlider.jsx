@@ -5,28 +5,33 @@ import 'swiper/css/navigation';
 
 import { motion } from 'framer-motion';
 
+
 import Slider1 from '../assets/Slider-1.jpg';
 import Slider2 from '../assets/Slider-2.jpeg';
 import Slider3 from '../assets/Slider-3.webp';
+import { Link } from 'react-router';
 
 const slides = [
   {
     image: Slider1,
     heading: 'MegaMerx Super Deals',
     subheading: 'Get up to 40% OFF on Electronics & Gadgets!',
-    cta: 'Shop Now'
+    cta: 'Shop Now',
+    link: '/all-categories',  // Link for this slide button
   },
   {
     image: Slider2,
     heading: 'Bulk Orders, Bigger Savings',
     subheading: 'Order 500+ units & enjoy exclusive prices.',
-    cta: 'Browse Categories'
+    cta: 'Browse Categories',
+    link: '/all-categories',  // Example different route
   },
   {
     image: Slider3,
     heading: '',
     subheading: '',
-    cta: 'Explore Now'
+    cta: 'Explore Now',
+    link: '/all-categories',  // Another example route
   }
 ];
 
@@ -67,16 +72,18 @@ const BannerSlider = () => {
               {slide.subheading}
             </motion.p>
 
-            <motion.button
-              className="mt-4 px-4 py-2 bg-orange-500 text-white rounded font-semibold rounded-full"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
+            <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              {slide.cta}
-            </motion.button>
+              <Link
+                to={slide.link}
+                className="inline-block mt-4 px-6 py-2 bg-orange-500 text-white rounded-full font-semibold text-center"
+              >
+                {slide.cta}
+              </Link>
+            </motion.div>
           </div>
         </SwiperSlide>
       ))}
