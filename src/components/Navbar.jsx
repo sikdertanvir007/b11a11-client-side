@@ -68,7 +68,7 @@ const Navbar = () => {
           
           <Link className='flex items-center' to="/">
           
-          <img className='w-10 lg:w-15  ' src="/public/megamerx-logo.png.png" alt="" />
+          <img className='w-10 lg:w-15  ' src="/megamerx-logo.png.png" alt="" />
            <p className='font-bold text-xl lg:text-2xl text-red-500 italic'>Mega<span className='text-orange-500 italic'>Merx</span></p>
           </Link>
           

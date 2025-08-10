@@ -24,8 +24,8 @@ const slides = [
   },
   {
     image: Slider3,
-    heading: 'New Arrivals in Fashion & Apparel',
-    subheading: 'Latest trends at wholesale rates.',
+    heading: '',
+    subheading: '',
     cta: 'Explore Now'
   }
 ];
@@ -42,7 +42,7 @@ const BannerSlider = () => {
       {slides.map((slide, index) => (
         <SwiperSlide key={index}>
           <div
-            className="h-[400px] flex flex-col justify-center items-center text-center text-white rounded-xl"
+            className="h-[400px] flex flex-col space-y-14 justify-center items-center text-center text-white rounded-xl"
             style={{
               backgroundImage: `url(${slide.image})`,
               backgroundSize: 'cover',
@@ -59,7 +59,7 @@ const BannerSlider = () => {
             </motion.h2>
 
             <motion.p
-              className="text-lg mt-2"
+              className="text-lg mt-2 font-semibold"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -68,7 +68,7 @@ const BannerSlider = () => {
             </motion.p>
 
             <motion.button
-              className="mt-4 px-4 py-2 bg-orange-500 text-white rounded"
+              className="mt-4 px-4 py-2 bg-orange-500 text-white rounded font-semibold rounded-full"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               initial={{ opacity: 0, scale: 0.8 }}
