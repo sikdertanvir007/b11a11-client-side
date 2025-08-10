@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { Link } from "react-router";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -9,6 +9,7 @@ const AllProducts = () => {
   const [products, setProducts] = useState([]);
   const [showAvailableOnly, setShowAvailableOnly] = useState(false);
   const [viewMode, setViewMode] = useState("card");
+  const [sortOrder, setSortOrder] = useState("none"); // new state for sorting
 
   useEffect(() => {
     fetch("https://b11a11-server-side-self.vercel.app/products")
@@ -16,11 +17,27 @@ const AllProducts = () => {
       .then((data) => setProducts(data));
   }, []);
 
+  // Filter products by availability condition
   const filteredProducts = showAvailableOnly
     ? products.filter(
         (p) => parseInt(p.minQuantity?.$numberInt || p.minQuantity) > 100
       )
     : products;
+
+  // Sort products by price based on sortOrder state
+  const sortedProducts = useMemo(() => {
+    if (sortOrder === "none") return filteredProducts;
+
+    return [...filteredProducts].sort((a, b) => {
+      const priceA = parseFloat(a.price) || 0;
+      const priceB = parseFloat(b.price) || 0;
+
+      if (sortOrder === "asc") return priceA - priceB;
+      if (sortOrder === "desc") return priceB - priceA;
+
+      return 0;
+    });
+  }, [filteredProducts, sortOrder]);
 
   return (
     <div>
@@ -35,11 +52,11 @@ const AllProducts = () => {
           All Products
         </h1>
 
-        {/* Filter & View Mode Controls */}
-        <div className="mb-6 flex justify-between items-center">
+        {/* Filter, Sort & View Mode Controls */}
+        <div className="mb-6 flex flex-wrap justify-between items-center gap-4">
           <button
             onClick={() => setShowAvailableOnly(!showAvailableOnly)}
-            className="bg-red-600 font-semibold text-white px-4 py-2 rounded-xl hover:bg-red-700 flex items-center gap-3"
+            className="bg-red-500 font-semibold text-white px-4 py-2 rounded-xl hover:bg-red-700 flex items-center gap-3"
           >
             {showAvailableOnly
               ? "Show All Products"
@@ -48,9 +65,19 @@ const AllProducts = () => {
           </button>
 
           <select
+            value={sortOrder}
+            onChange={(e) => setSortOrder(e.target.value)}
+            className="border border-gray-200 rounded-xl bg-red-500 text-white font-semibold px-3 py-2"
+          >
+            <option value="none">Sort By Price</option>
+            <option value="asc">Price: Low to High</option>
+            <option value="desc">Price: High to Low</option>
+          </select>
+
+          <select
             value={viewMode}
             onChange={(e) => setViewMode(e.target.value)}
-            className="border border-gray-200 rounded-xl bg-red-600 text-white font-semibold px-3 py-2 ml-4"
+            className="border border-gray-200 rounded-xl bg-red-500 text-white font-semibold px-3 py-2"
           >
             <option value="card">Card View</option>
             <option value="table">Table View</option>
@@ -59,7 +86,7 @@ const AllProducts = () => {
 
         {viewMode === "card" ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProducts.map((product) => (
+            {sortedProducts.map((product) => (
               <div
                 key={product._id}
                 className="border p-4 rounded shadow hover:shadow-lg transition"
@@ -80,9 +107,10 @@ const AllProducts = () => {
                 </p>
                 <p className="text-theme-gray-600">
                   Min Quantity:{" "}
-                  {parseInt(
-                    product.minQuantity?.$numberInt || product.minQuantity
-                  )}
+                  {parseInt(product.minQuantity?.$numberInt || product.minQuantity)}
+                </p>
+                <p className="text-theme-gray-600">
+                  Price: ${product.price}
                 </p>
 
                 <Link
@@ -106,11 +134,12 @@ const AllProducts = () => {
                   <th className="px-4 py-2 border">Rating</th>
                   <th className="px-4 py-2 border">Quantity</th>
                   <th className="px-4 py-2 border">Min Quantity</th>
+                  <th className="px-4 py-2 border">Price</th>
                   <th className="px-4 py-2 border">Action</th>
                 </tr>
               </thead>
               <tbody>
-                {filteredProducts.map((product) => (
+                {sortedProducts.map((product) => (
                   <tr key={product._id} className="hover:bg-gray-50">
                     <td className="border px-4 py-2">
                       <img
@@ -125,10 +154,9 @@ const AllProducts = () => {
                     <td className="border px-4 py-2">{product.rating}</td>
                     <td className="border px-4 py-2">{product.mainQuantity}</td>
                     <td className="border px-4 py-2">
-                      {parseInt(
-                        product.minQuantity?.$numberInt || product.minQuantity
-                      )}
+                      {parseInt(product.minQuantity?.$numberInt || product.minQuantity)}
                     </td>
+                    <td className="border px-4 py-2">${product.price}</td>
                     <td className="border px-4 py-2">
                       <Link
                         to={`/update-product/${product._id}`}
