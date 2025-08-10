@@ -161,12 +161,7 @@ const Navbar = () => {
         Login
       </Link>
 
-      <Link
-        to="/auth/register"
-        className="border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white btn btn-xs sm:btn-sm md:btn-md lg:btn-lg "
-      >
-        Register
-      </Link>
+     
     </>
   )}
 </div>
