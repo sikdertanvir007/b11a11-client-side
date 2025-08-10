@@ -107,7 +107,7 @@ const ProductDetails = () => {
           />
           <div className="flex-1 space-y-2">
             <h2 className="text-2xl font-bold">{product.name}</h2>
-            <p className="text-gray-600">{product.description}</p>
+            <p className="text-theme-gray-600">{product.description}</p>
             <p className="text-red-600 font-bold text-lg">${price.toFixed(2)}</p>
             <p>Brand: {product.brand}</p>
             <p>Available: {mainQuantity}</p>
@@ -133,8 +133,8 @@ const ProductDetails = () => {
         {/* Buy Modal */}
         {showModal && (
           <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
-            <div className="bg-white p-6 rounded-md w-full max-w-md">
-              <h3 className="text-xl font-bold mb-4">Checkout</h3>
+            <div className="bg-theme-white p-6 rounded-md w-full max-w-md">
+              <h3 className="text-xl text-theme-gray font-bold mb-4">Checkout</h3>
               <form
                 onSubmit={(e) => {
                   e.preventDefault();

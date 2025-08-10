@@ -72,13 +72,13 @@ const AllProducts = () => {
                   />
                 </div>
                 <h2 className="text-xl font-bold mt-2">{product.name}</h2>
-                <p className="text-gray-600">Brand: {product.brand}</p>
-                <p className="text-gray-600">Category: {product.category}</p>
-                <p className="text-gray-600">Rating: {product.rating}</p>
-                <p className="text-gray-600">
+                <p className="text-theme-gray-600">Brand: {product.brand}</p>
+                <p className="text-theme-gray-600">Category: {product.category}</p>
+                <p className="text-theme-gray-600">Rating: {product.rating}</p>
+                <p className="text-theme-gray-600">
                   Quantity: {product.mainQuantity}
                 </p>
-                <p className="text-gray-600">
+                <p className="text-theme-gray-600">
                   Min Quantity:{" "}
                   {parseInt(
                     product.minQuantity?.$numberInt || product.minQuantity

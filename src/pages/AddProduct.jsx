@@ -196,7 +196,7 @@ const AddProduct = () => {
           </button>
         </form>
 
-        <p className="mt-4 text-gray-600">
+        <p className="mt-4 text-theme-gray-600">
           Product Content: This platform allows you to add wholesale products
           with detailed information, manage stock, and ensure smooth business
           transactions.

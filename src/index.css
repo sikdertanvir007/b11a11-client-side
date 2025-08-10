@@ -5,3 +5,51 @@
 * {
     font-family: "Poppins", sans-serif;
 }
+
+/* Light mode (default) */
+body {
+  background-color: white;
+  color: black;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Dark mode styles when body has .dark class */
+body.dark {
+  background-color: #121212;
+  color: #eee;
+}
+
+/* Adjust navbar background and text */
+body.dark .navbar {
+  background: linear-gradient(to right, #2d2d2d, #1a1a1a);
+  color: #eee;
+}
+
+/* Adjust your buttons or links as needed */
+body.dark .btn {
+  background-color: #444;
+  color: white;
+  border-color: #666;
+}
+body.dark .btn:hover {
+  background-color: #555;
+  border-color: #777;
+}
+
+/* Light mode (default) */
+.text-theme-gray {
+  color: #4b5563; /* Tailwind's text-gray-600 */
+}
+
+/* Dark mode */
+body.dark .text-theme-gray {
+  color: #f9fafb; /* Tailwind's text-white-ish */
+}
+.bg-theme-white {
+  color: #f9fafb; /* Tailwind's text-gray-600 */
+}
+
+/* Dark mode */
+body.dark .bg-theme-white {
+  color: #4b5563; /* Tailwind's text-white-ish */
+}

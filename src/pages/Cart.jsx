@@ -39,7 +39,7 @@ const Cart = () => {
         <Helmet> <title>My Cart | MegaMerx</title></Helmet>
         <div><Navbar></Navbar></div>
       <div className="max-w-xl  text-center mx-auto my-50 ">
-        <p className="text-lg mb-4 text-gray-600">Your cart is empty!</p>
+        <p className="text-xl mb-4 text-theme-gray-600">Your cart is empty!</p>
         <Link
           to="/"
           className="bg-red-600 text-white px-6 py-2 rounded-xl hover:bg-red-700"

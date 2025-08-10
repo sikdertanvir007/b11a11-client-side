@@ -78,12 +78,12 @@ const MyProducts = () => {
                   />
                 </div>
                 <h3 className="text-xl font-bold mb-2">{prod.name}</h3>
-                <p className="text-gray-600 mb-1">Brand: {prod.brand}</p>
-                <p className="text-gray-600 mb-1">Category: {prod.category}</p>
-                <p className="text-gray-600 mb-1">
+                <p className="text-theme-gray-600 mb-1">Brand: {prod.brand}</p>
+                <p className="text-theme-gray-600 mb-1">Category: {prod.category}</p>
+                <p className="text-theme-gray-600 mb-1">
                   Min Quantity: {prod.minQuantity}
                 </p>
-                <p className="text-gray-600 mb-1">{prod.description}</p>
+                <p className="text-theme-gray-600 mb-1">{prod.description}</p>
                 <p className="text-red-600 font-bold mb-1">
                   Price: ${prod.price?.toFixed(2)}
                 </p>

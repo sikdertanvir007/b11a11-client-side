@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../provider/AuthProvider';
 import { FaShoppingCart } from "react-icons/fa";
+import DarkModeToggle from '../DarkModeToggle';
 
 
 
@@ -123,10 +124,11 @@ const Navbar = () => {
         </div>
 
      <div className="navbar-end space-x-4 items-center">
+      <DarkModeToggle></DarkModeToggle>
   {user ? (
     <>
       {/* Profile Picture + Dropdown for Small Devices */}
-      <div className="dropdown dropdown-end sm:hidden">
+      <div className="dropdown dropdown-end">
         <div tabIndex={0} role="button">
           <img
             src={user.photoURL}
@@ -147,24 +149,8 @@ const Navbar = () => {
         </ul>
       </div>
 
-      {/* LogOut Button for Larger Devices */}
-      <div className="hidden sm:block">
-<div className='flex items-center space-x-4'>
-         <img
-            src={user.photoURL}
-            alt="User"
-            className="w-10 h-10 rounded-full cursor-pointer"
-            title={user.displayName}
-          />
-        <Link
-          to="/"
-          onClick={handleLogOut}
-          className="  border border-red-500 text-red-500 hover:bg-red-500 hover:text-white btn btn-xs sm:btn-sm md:btn-md lg:btn-lg "
-        >
-          LogOut
-        </Link>
-        </div>
-      </div>
+  
+     
     </>
   ) : (
     <>
