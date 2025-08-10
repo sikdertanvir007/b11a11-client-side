@@ -14,7 +14,7 @@ const CategoryProducts = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/products/category/${encodeURIComponent(categoryName)}`)
+    fetch(`https://b11a11-server-side-self.vercel.app/products/category/${encodeURIComponent(categoryName)}`)
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, [categoryName]);

@@ -13,12 +13,12 @@ const UpdateProduct = () => {
 
   useEffect(() => {
     // Fetch product details
-    fetch(`http://localhost:3000/products/${id}`)
+    fetch(`https://b11a11-server-side-self.vercel.app/products/${id}`)
       .then((res) => res.json())
       .then((data) => setProduct(data));
 
     // Fetch categories for dropdown
-    fetch("http://localhost:3000/categories")
+    fetch("https://b11a11-server-side-self.vercel.app/categories")
       .then((res) => res.json())
       .then((data) => setCategories(data));
   }, [id]);
@@ -42,7 +42,7 @@ const UpdateProduct = () => {
       minQuantity: parseInt(form.minQuantity.value),
     };
 
-    fetch(`http://localhost:3000/products/${id}`, {
+    fetch(`https://b11a11-server-side-self.vercel.app/products/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updatedProduct),

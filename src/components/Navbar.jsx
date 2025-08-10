@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router';
 
-import { FaUserXmark } from "react-icons/fa6";
+
 import { toast } from 'react-toastify';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../provider/AuthProvider';
@@ -28,48 +28,14 @@ const Navbar = () => {
 
   return (
     
-      <div className="navbar bg-base-100 shadow-md p-0 px-3 md:px-8 lg:px-10 fixed top-0 left-0 w-full z-50  ">
+      <div className="navbar bg-gradient-to-r from-orange-100 to-red-100 shadow-md p-0 px-3 md:px-8 lg:px-10 fixed top-0 left-0 w-full z-50  ">
         <div className="navbar-start">
-          <div className="dropdown">
-            <div tabIndex={0} role="button" className="cursor-pointer mr-2 lg:hidden">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
-              </svg>
-            </div>
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-52 p-2 shadow"
-            >
-              <NavLink className={({isActive})=>(isActive ? 'underline text-red-500 font-bold' : '')} to="/">Home</NavLink>
-              <NavLink className={({isActive})=>(isActive ? 'underline text-red-500 font-bold' : '')} to="/all-categories">Categories</NavLink>
-               {user && (
-  <NavLink className={({isActive})=>(isActive ? 'underline text-red-500 font-bold' : '')} to="/all-products">
-    All Products 
-  </NavLink>
-)}
-              {user && (
-  <NavLink className={({isActive})=>(isActive ? 'underline text-red-500 font-bold' : '')}  to="/add-product">
-    Add Product 
-  </NavLink>
-)}
-              {user && (
-  <NavLink className={({isActive})=>(isActive ? 'underline text-red-500 font-bold' : '')} to={`/my-products?email=${user.email}`}>
-    My Products
-</NavLink>)}
- {user && (
-  <NavLink className={({isActive})=>(isActive ? 'underline text-red-500 font-bold' : '')}  to={`/cart/${user.email}`}>
-     <FaShoppingCart size={20} />
-</NavLink>)}
-
-            
-             
-            </ul>
-          </div>
+         
           
           <Link className='flex items-center' to="/">
           
-          <img className='w-15 ' src="/public/megamerx-logo.png.png" alt="" />
-           <p className='font-bold text-3xl text-red-500 italic'>Mega<span className='text-orange-500 italic'>Merx</span></p>
+          <img className='w-10 lg:w-15  ' src="/public/megamerx-logo.png.png" alt="" />
+           <p className='font-bold text-xl lg:text-2xl text-red-500 italic'>Mega<span className='text-orange-500 italic'>Merx</span></p>
           </Link>
           
         </div>
@@ -121,7 +87,7 @@ const Navbar = () => {
           </ul>
         </div>
 
-       <div className="navbar-end space-x-4 items-center flex">
+       <div className="navbar-end space-x-4 items-center  ">
   {user ? (
     <>
       <img
@@ -133,28 +99,65 @@ const Navbar = () => {
       <Link
         to="/"
         onClick={handleLogOut}
-        className="btn border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white rounded transition duration-300"
+        className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl"
       >
         LogOut
       </Link>
     </>
   ) : (
     <>
-      <FaUserXmark size={32} />
-      <Link
-        to="/auth/login"
-        className="btn border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white rounded transition duration-300"
-      >
-        Login
-      </Link>
+      
+    <Link
+  to="/auth/login"
+  className="border border-red-500 text-red-500 hover:bg-red-500 hover:text-white btn btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl "
+>
+  Login
+</Link>
+
       <Link
         to="/auth/register"
-        className="btn border border-green-500 text-green-500 hover:bg-green-500 hover:text-white rounded transition duration-300"
+        className=" border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white btn btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl"
       >
         Register
       </Link>
     </>
   )}
+
+   <div className="dropdown">
+            <div tabIndex={0} role="button" className="cursor-pointer mr-2 lg:hidden">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
+              </svg>
+            </div>
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-52 p-2 shadow"
+            >
+              <NavLink className={({isActive})=>(isActive ? 'underline text-red-500 font-bold' : '')} to="/">Home</NavLink>
+              <NavLink className={({isActive})=>(isActive ? 'underline text-red-500 font-bold' : '')} to="/all-categories">Categories</NavLink>
+               {user && (
+  <NavLink className={({isActive})=>(isActive ? 'underline text-red-500 font-bold' : '')} to="/all-products">
+    All Products 
+  </NavLink>
+)}
+              {user && (
+  <NavLink className={({isActive})=>(isActive ? 'underline text-red-500 font-bold' : '')}  to="/add-product">
+    Add Product 
+  </NavLink>
+)}
+              {user && (
+  <NavLink className={({isActive})=>(isActive ? 'underline text-red-500 font-bold' : '')} to={`/my-products?email=${user.email}`}>
+    My Products
+</NavLink>)}
+ {user && (
+  <NavLink className={({isActive})=>(isActive ? 'underline text-red-500 font-bold' : '')}  to={`/cart/${user.email}`}>
+     <FaShoppingCart size={20} />
+</NavLink>)}
+
+            
+             
+            </ul>
+          </div>
 </div>
 
       </div>

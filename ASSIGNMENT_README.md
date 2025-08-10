@@ -6,7 +6,7 @@ MegaMerx is a global B2B wholesale marketplace connecting bulk suppliers (manufa
 
 ## 🌟 Live Demo
 
-[🔗 Live Website URL Here](https://your-live-link.com)
+[🔗 Live Website URL Here](https://megamerx-client-side.web.app/)
 
 ---
 
@@ -155,10 +155,4 @@ Example commit messages:
 
 ---
 
-## 🚀 How to Run Locally
 
-```bash
-git clone https://github.com/yourusername/megamerx.git
-cd megamerx
-npm install
-npm run dev

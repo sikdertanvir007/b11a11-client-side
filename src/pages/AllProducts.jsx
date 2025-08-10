@@ -11,7 +11,7 @@ const AllProducts = () => {
   const [viewMode, setViewMode] = useState("card");
 
   useEffect(() => {
-    fetch("http://localhost:3000/products")
+    fetch("https://b11a11-server-side-self.vercel.app/products")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);

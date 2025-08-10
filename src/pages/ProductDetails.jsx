@@ -17,7 +17,7 @@ const ProductDetails = () => {
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/products/${id}`)
+    fetch(`https://b11a11-server-side-self.vercel.app/products/${id}`)
       .then((res) => res.json())
       .then((data) => setProduct(data));
   }, [id]);
@@ -50,7 +50,7 @@ const ProductDetails = () => {
     }
 
     // Step 1: Reduce stock
-    fetch(`http://localhost:3000/products/${objectId}/quantity`, {
+    fetch(`https://b11a11-server-side-self.vercel.app/products/${objectId}/quantity`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ $inc: { mainQuantity: -quantity } }),
@@ -73,7 +73,7 @@ const ProductDetails = () => {
           },
         };
 
-        return fetch("http://localhost:3000/cart", {
+        return fetch("https://b11a11-server-side-self.vercel.app/cart", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(cartItem),

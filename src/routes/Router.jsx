@@ -18,6 +18,9 @@ import AddProduct from "../pages/AddProduct";
 import MyProducts from "../pages/MyProducts";
 import Cart from "../pages/Cart";
 
+import { waitForAuth } from "../utils/firebaseAuthHelpers";
+
+
 
 
 
@@ -40,7 +43,7 @@ children : [
         path : "/",
        element :<Home></Home>,
         loader: async () => {
-          const res = await fetch("http://localhost:3000/products");
+          const res = await fetch("https://b11a11-server-side-self.vercel.app/products");
           const products = await res.json();
           return products;
         },
@@ -126,37 +129,36 @@ children : [
     hydrateFallbackElement : <Loading></Loading>,
 },
 
-{
-  path: "/cart",
-  loader: async () => {
-          const res = await fetch("http://localhost:3000/cart");
-          const cartItems = await res.json();
-          return cartItems;
-  },
 
+{
+  path: "/cart/:email",
+  loader: async ({ params }) => {
+    const user = await waitForAuth();
+
+    if (!user) {
+      throw new Response("Unauthorized", { status: 401 });
+    }
+
+    const token = await user.getIdToken();
+
+    const res = await fetch(`https://b11a11-server-side-self.vercel.app/cart/${params.email}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    if (!res.ok) {
+      throw new Response("Failed to fetch cart", { status: res.status });
+    }
+
+    return await res.json();
+  },
   element: (
     <PrivateRoute>
-        <Cart></Cart>
+      <Cart />
     </PrivateRoute>
   ),
 },
-{
-    path: "/cart/:email",
-    element: (
-      <PrivateRoute>
-        <Cart />
-      </PrivateRoute>
-    ),
-    loader: async ({ params }) => {
-      const email = params.email;
-      const res = await fetch(`http://localhost:3000/cart/${email}`);
-      if (!res.ok) {
-        throw new Response("Failed to fetch cart", { status: res.status });
-      }
-      const data = await res.json();
-      return data;
-    }
-  },
 
 
 
